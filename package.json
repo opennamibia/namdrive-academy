@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.26",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vee-validate": "^2.2.13"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

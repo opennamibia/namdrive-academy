@@ -2,9 +2,6 @@
   <b-navbar class="border shadow-sm" toggleable="md" type="light">
     <b-navbar-brand to="/">
       <div class="row">
-        <!-- <div class="col-4 text-right">
-          <img height="44px" width="auto" src="~/assets/images/logo-car.png" alt />
-        </div>-->
         <div class="col-8 d-flex align-items-center pl-1 ml-2">
           <div>
             <h3 class="m-0 logo-title">NAMDRIVE</h3>
