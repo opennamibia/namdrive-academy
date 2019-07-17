@@ -1,11 +1,11 @@
 <template>
   <b-navbar class="border shadow-sm" toggleable="md" type="light">
-    <b-navbar-brand href="/">
+    <b-navbar-brand to="/">
       <div class="row">
         <div class="col-4 text-right">
-          <img src="~/assets/images/logo-car.png" alt />
+          <img height="44px" width="auto" src="~/assets/images/logo-car.png" alt />
         </div>
-        <div class="col-8 d-flex align-items-center">
+        <div class="col-8 d-flex align-items-center pl-1">
           <div>
             <h3 class="m-0 logo-title">NAMDRIVE</h3>
             <p class="m-0 text-right logo-subtitle">Academy</p>
@@ -18,7 +18,12 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item class="d-flex align-items-center" href="#">PRICING</b-nav-item>
+        <b-nav-item
+          v-if="$route.path !== '/pricing'"
+          class="d-flex align-items-center"
+          to="/pricing"
+        >PRICING</b-nav-item>
+        <b-nav-item v-else class="d-flex align-items-center" to="/">HOME</b-nav-item>
         <b-nav-item href="#">
           <b-button class="btn-success">BOOK NOW</b-button>
         </b-nav-item>
