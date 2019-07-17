@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="align-items-center">
         <b-col lg="3" sm="6" class="mt-4 m-lg-0 mx-auto text-center">
-          <img src="~/assets/images/footer-branding.png" alt="Namdrive footer logo" />
+          <img width="250px" src="~/assets/images/jumbo-logo.png" alt="Namdrive footer logo" />
         </b-col>
         <b-col lg="3" sm="6" class="mt-4 m-lg-0 mx-auto text-center">
           <p>

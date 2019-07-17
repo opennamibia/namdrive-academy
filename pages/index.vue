@@ -4,9 +4,13 @@
       <img class="jumbo-image" src="~/assets/images/jumbo-logo.png" alt="Namdrive Logo" />
     </b-jumbotron>
     <b-container class="border-bottom mx-auto pb-4">
-      <b-row class="justify-content-center w-75 mx-auto">
-        <b-col class="mx-auto">
-          <b-card no-body class="overflow-hidden mx-auto" style="max-width: 540px;">
+      <b-row class="justify-content-center mx-auto">
+        <div class="mx-auto">
+          <b-card
+            no-body
+            class="overflow-hidden mx-auto"
+            style="max-width: 550px; min-width: 285px;"
+          >
             <b-row no-gutters>
               <b-col md="6" class="text-center">
                 <b-card-img
@@ -24,7 +28,7 @@
               </b-col>
             </b-row>
           </b-card>
-        </b-col>
+        </div>
       </b-row>
     </b-container>
     <section class="success-lead py-4 text-center inner-shadow">
@@ -37,7 +41,7 @@
             style="width: fit-content; height: fit-content;"
             class="shadow-sm border rounded p-3"
           >
-            <img src="~/assets/images/passing.png" alt="Man passing driver's test" />
+            <img width="200px" src="~/assets/images/passing.jpg" alt="Man passing driver's test" />
           </div>
         </b-col>
         <b-col md="6" class="d-flex align-items-center text-center mt-5 mt-md-0">

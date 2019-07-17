@@ -2,10 +2,10 @@
   <b-navbar class="border shadow-sm" toggleable="md" type="light">
     <b-navbar-brand to="/">
       <div class="row">
-        <div class="col-4 text-right">
+        <!-- <div class="col-4 text-right">
           <img height="44px" width="auto" src="~/assets/images/logo-car.png" alt />
-        </div>
-        <div class="col-8 d-flex align-items-center pl-1">
+        </div>-->
+        <div class="col-8 d-flex align-items-center pl-1 ml-2">
           <div>
             <h3 class="m-0 logo-title">NAMDRIVE</h3>
             <p class="m-0 text-right logo-subtitle">Academy</p>
@@ -45,9 +45,9 @@ export default {
 }
 .logo-title {
   font-size: 24px;
+  color: #d00000;
 }
 .logo-subtitle {
   font-size: 16px;
-  color: #d00000;
 }
 </style>
