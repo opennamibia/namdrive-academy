@@ -26,10 +26,10 @@
 
     <b-row class="justify-content-center px-3">
       <b-form-group>
-        <b-form-radio name="package-choice" value="A"
+        <b-form-radio v-model="client.package" name="package-choice" value="A"
           >Learner and Driver Training Package (Code B)</b-form-radio
         >
-        <b-form-radio name="package-choice" value="A"
+        <b-form-radio v-model="client.package" name="package-choice" value="B"
           >Driver Training Package (Code B)</b-form-radio
         >
         <p class="text-muted mt-0 ml-4">
@@ -47,20 +47,30 @@
     <b-row class="py-4">
       <b-col class="mb-4" md="3">
         <label for="booking-date">Date</label>
-        <b-form-input id="booking-date" type="date" />
+        <b-form-input
+          v-model="client.bookingDate"
+          id="booking-date"
+          name="bookingDate"
+          type="date"
+        />
       </b-col>
 
       <b-col class="mb-4" md="2">
         <label for="booking-user-title">Title</label>
-        <b-form-input id="booking-user-title" type="text" />
+        <b-form-input
+          v-model="client.title"
+          id="booking-user-title"
+          type="text"
+          name="title"
+        />
       </b-col>
 
       <b-col class="mb-4" md="7">
         <label for="booking-user-names">First name(s)</label>
         <b-form-input
-          v-validate="'required|email'"
+          v-model="client.firstnames"
           id="booking-user-names"
-          name="email"
+          name="firstnames"
           type="text"
         />
         <span>{{ errors.first("email") }}</span>
@@ -73,19 +83,34 @@
 
       <b-col class="mb-4" md="3">
         <label for="booking-user-birth">Date of birth</label>
-        <b-form-input id="booking-user-birth" type="date" />
+        <b-form-input
+          v-model="client.birthday"
+          id="booking-user-birth"
+          type="date"
+          name="birthday"
+        />
       </b-col>
 
       <b-col class="mb-4" md="4">
         <label for="booking-user-id">ID/Passport no.</label>
-        <b-form-input id="booking-user-id" type="text" />
+        <b-form-input
+          v-model="client.idNumber"
+          id="booking-user-id"
+          type="text"
+          name="idNumber"
+        />
       </b-col>
 
       <b-col class="mb-4" md="5">
         <label for="booking-user-gender">Gender</label>
         <b-form-group>
-          <b-form-radio class="d-inline" value="male">Male</b-form-radio>
-          <b-form-radio class="d-inline ml-3" value="female"
+          <b-form-radio v-model="client.gender" class="d-inline" value="male"
+            >Male</b-form-radio
+          >
+          <b-form-radio
+            v-model="client.gender"
+            class="d-inline ml-3"
+            value="female"
             >Female</b-form-radio
           >
         </b-form-group>
@@ -93,17 +118,32 @@
 
       <b-col class="mb-4" md="7">
         <label for="booking-user-email">Email address</label>
-        <b-form-input id="booking-user-email" type="email" />
+        <b-form-input
+          v-model="client.email"
+          id="booking-user-email"
+          type="email"
+          name="email"
+        />
       </b-col>
 
       <b-col class="mb-4" md="5">
         <label for="booking-user-phone">Cell no.</label>
-        <b-form-input id="booking-user-phone" type="text" />
+        <b-form-input
+          v-model="client.cellphone"
+          id="booking-user-phone"
+          type="text"
+          name="cellphone"
+        />
       </b-col>
 
       <b-col class="mb-4" md="7">
-        <label for="booking-user-title">Title</label>
-        <b-form-input id="booking-user-title" type="text" />
+        <label for="booking-user-title">Physical Address</label>
+        <b-form-input
+          v-model="client.address"
+          id="booking-user-title"
+          type="text"
+          name="address"
+        />
       </b-col>
     </b-row>
 
@@ -278,7 +318,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "book",
+  data: () => ({
+    client: {
+      package: "",
+      bookingDate: "",
+      firstnames: "",
+      lastname: "",
+      birthday: "",
+      idNumber: "",
+      gender: "",
+      email: "",
+      cellphone: "",
+      address: "",
+      drivingSkill: ""
+    },
+    kin: {
+      firstnames: "",
+      lastname: "",
+      cellphone: "",
+      idNumber: "",
+      title: "",
+      relationship: "",
+      email: ""
+    }
+  })
+};
 </script>
 
 <style>
