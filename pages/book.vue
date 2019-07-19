@@ -1,11 +1,17 @@
 <template>
   <b-container style="max-width: 800px;" class="justify-content-center border">
     <b-row class="justify-content-center">
-      <img class="w-75 my-5" src="~/assets/images/jumbo-logo.png" alt="Namdrive branding image" />
+      <b-col class="text-center mx-auto" md="12">
+        <img
+          class="w-75 my-5"
+          src="~/assets/images/jumbo-logo.png"
+          alt="Namdrive branding image"
+        />
+      </b-col>
     </b-row>
 
     <b-row>
-      <h4 class="mx-auto mb-5">BOOK YOUR DRIVING LESSONS ONLINE</h4>
+      <h4 class="mx-auto mb-5 text-center">BOOK YOUR DRIVING LESSONS ONLINE</h4>
     </b-row>
 
     <b-row class="bg-secondary text-white text-center">
@@ -18,20 +24,18 @@
       </p>
     </b-row>
 
-    <b-row class="justify-content-center">
+    <b-row class="justify-content-center px-3">
       <b-form-group>
-        <b-form-radio
-          v-model="selected"
-          name="some-radios"
-          value="A"
-        >Learner and Driver Training Package (Code B)</b-form-radio>
-        <b-form-radio
-          v-model="selected"
-          name="some-radios"
-          value="A"
-        >Driver Training Package (Code B)</b-form-radio>
+        <b-form-radio name="package-choice" value="A"
+          >Learner and Driver Training Package (Code B)</b-form-radio
+        >
+        <b-form-radio name="package-choice" value="A"
+          >Driver Training Package (Code B)</b-form-radio
+        >
         <p class="text-muted mt-0 ml-4">
-          <small>(We require you to present your valid learner's license)</small>
+          <small
+            >(We require you to present your valid learner's license)</small
+          >
         </p>
       </b-form-group>
     </b-row>
@@ -41,111 +45,128 @@
     </b-row>
 
     <b-row class="py-4">
-      <b-col class="mb-4" cols="3">
+      <b-col class="mb-4" md="3">
         <label for="booking-date">Date</label>
         <b-form-input id="booking-date" type="date" />
       </b-col>
 
-      <b-col class="mb-4" cols="2">
+      <b-col class="mb-4" md="2">
         <label for="booking-user-title">Title</label>
         <b-form-input id="booking-user-title" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="7">
+      <b-col class="mb-4" md="7">
         <label for="booking-user-names">First name(s)</label>
-        <b-form-input id="booking-user-names" type="text" />
+        <b-form-input
+          v-validate="'required|email'"
+          id="booking-user-names"
+          name="email"
+          type="text"
+        />
+        <span>{{ errors.first("email") }}</span>
       </b-col>
 
-      <b-col class="mb-4" cols="5">
+      <b-col class="mb-4" md="5">
         <label for="booking-user-lastname">Last name</label>
         <b-form-input id="booking-user-lastname" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="3">
+      <b-col class="mb-4" md="3">
         <label for="booking-user-birth">Date of birth</label>
         <b-form-input id="booking-user-birth" type="date" />
       </b-col>
 
-      <b-col class="mb-4" cols="4">
+      <b-col class="mb-4" md="4">
         <label for="booking-user-id">ID/Passport no.</label>
         <b-form-input id="booking-user-id" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="5">
+      <b-col class="mb-4" md="5">
         <label for="booking-user-gender">Gender</label>
         <b-form-group>
           <b-form-radio class="d-inline" value="male">Male</b-form-radio>
-          <b-form-radio class="d-inline ml-3" value="female">Female</b-form-radio>
+          <b-form-radio class="d-inline ml-3" value="female"
+            >Female</b-form-radio
+          >
         </b-form-group>
       </b-col>
 
-      <b-col class="mb-4" cols="7">
+      <b-col class="mb-4" md="7">
         <label for="booking-user-email">Email address</label>
         <b-form-input id="booking-user-email" type="email" />
       </b-col>
 
-      <b-col class="mb-4" cols="5">
+      <b-col class="mb-4" md="5">
         <label for="booking-user-phone">Cell no.</label>
         <b-form-input id="booking-user-phone" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="7">
+      <b-col class="mb-4" md="7">
         <label for="booking-user-title">Title</label>
         <b-form-input id="booking-user-title" type="text" />
       </b-col>
     </b-row>
 
     <b-row>
-      <b-col class="mb-2" cols="12">
+      <b-col class="mb-2" md="12">
         <p>
           <b>If under 17, details of next of kin:</b>
         </p>
       </b-col>
 
-      <b-col class="mb-4" cols="5">
+      <b-col class="mb-4" md="5">
         <label for="booking-kin-lastname">Lastname</label>
         <b-form-input id="booking-kin-lastname" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="7">
+      <b-col class="mb-4" md="7">
         <label for="booking-kin-names">First name(s)</label>
         <b-form-input id="booking-kin-names" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="5">
-        <label for="booking-kin-cell">Cell no.</label>
-        <b-form-input id="booking-kin-cell" type="text" />
+      <b-col class="mb-4" md="5">
+        <label for="booking-kin-cell">Cell no. (eg. +264812345678)</label>
+        <b-form-input
+          v-validate="{ required: true, regex: /^\+[1-9]{1}[0-9]{3,14}$/ }"
+          id="booking-kin-cell"
+          type="text"
+          name="phone"
+        />
+        <span>{{ errors.first("phone") }}</span>
       </b-col>
 
-      <b-col class="mb-4" cols="4">
+      <b-col class="mb-4" md="4">
         <label for="booking-kin-id">ID/Passport no.</label>
         <b-form-input id="booking-kin-id" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="3">
+      <b-col class="mb-4" md="3">
         <label for="booking-kin-title">Title</label>
         <b-form-input id="booking-kin-title" type="text" />
       </b-col>
 
-      <b-col class="mb-4" cols="5">
+      <b-col class="mb-4" md="5">
         <label for="booking-kin-relationship">Relationship</label>
         <b-form-input id="booking-kin-relationship" type="text" />
       </b-col>
 
-      <b-col cols="7">
+      <b-col md="7">
         <label for="booking-kin-email">Email address</label>
         <b-form-input id="booking-kin-email" type="text" />
       </b-col>
 
-      <b-col class="mb-2" cols="12">
+      <b-col class="my-2" md="12">
         <p>
           <b>
-            <u>Note, if you are note a Namibian citizen, please provide the following on day of appointment:</u>
+            <u
+              >Note, if you are note a Namibian citizen, please provide the
+              following on day of appointment:</u
+            >
           </b>
         </p>
       </b-col>
 
-      <b-col class="mb-2 text-center" cols="12">
+      <b-col class="mb-2 text-center" md="12">
         <p>A: Traffic Registration Certificate</p>
         <p>B: Certified copy of passport</p>
         <p>C: Copy of Learner's License</p>
@@ -157,18 +178,39 @@
     </b-row>
 
     <b-row class="py-4">
-      <b-col class="mx-auto text-center" cols="12">
+      <b-col class="mx-auto text-center" md="12">
         <b-form-group>
-          <b-form-radio class="d-inline" value="female">Amateur</b-form-radio>
-          <b-form-radio class="d-inline ml-3" value="female">Intermediate</b-form-radio>
-          <b-form-radio class="d-inline ml-3" value="female">Professional</b-form-radio>
+          <b-form-radio
+            style="font-size: 0.9em;"
+            class="d-inline"
+            name="experience-choice"
+            value="amateur"
+            >Amateur</b-form-radio
+          >
+          <b-form-radio
+            style="font-size: 0.9em;"
+            class="d-inline ml-3"
+            name="experience-choice"
+            value="intermediate"
+            >Intermediate</b-form-radio
+          >
+          <b-form-radio
+            style="font-size: 0.9em;"
+            class="d-inline ml-3"
+            name="experience-choice"
+            value="professional"
+            >Professional</b-form-radio
+          >
         </b-form-group>
       </b-col>
 
-      <b-col class="text-center" cols="12">
+      <b-col class="text-center" md="12">
         <b-link target="_blank" to="/pricing">
           <small>
-            <u>Please ensure you have reviewed our prices, click here to view.</u>
+            <u
+              >Please ensure you have reviewed our prices, click here to
+              view.</u
+            >
           </small>
         </b-link>
       </b-col>
@@ -207,23 +249,26 @@
 
       <b-col class="d-flex align-items-end text-primary" md="6">
         <p>
-          Your lessons will commence when payment has been received in full, please email your proof of payment to namdriveacademy@gmail.com
-          <b>we will email/call you as soon as your booking has been approved.</b>
+          Your lessons will commence when payment has been received in full,
+          please email your proof of payment to namdriveacademy@gmail.com
+          <b
+            >we will email/call you as soon as your booking has been
+            approved.</b
+          >
         </p>
       </b-col>
     </b-row>
 
     <b-row class="pb-4">
-      <b-col class="mb-2" cols="12">
+      <b-col class="mb-2" md="12">
         <b-button class="btn-theme">SUBMIT BOOKING</b-button>
       </b-col>
-      <b-col cols="12">
+      <b-col md="12">
         <p>
           <small>
             By submitting this booking, you are agreeing to our
             <a href="#">
-              terms and
-              conditions
+              terms and conditions
             </a>
           </small>
         </p>
