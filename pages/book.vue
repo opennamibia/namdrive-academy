@@ -59,26 +59,36 @@
         <label for="booking-user-title">Title</label>
         <b-form-input
           v-model="client.title"
+          v-validate="'required|max:10'"
           id="booking-user-title"
           type="text"
           name="title"
         />
+        <span>{{ errors.first("title") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="7">
         <label for="booking-user-names">First name(s)</label>
         <b-form-input
           v-model="client.firstnames"
+          v-validate="'required|max:100'"
           id="booking-user-names"
           name="firstnames"
           type="text"
         />
-        <span>{{ errors.first("email") }}</span>
+        <span>{{ errors.first("firstnames") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="5">
         <label for="booking-user-lastname">Last name</label>
-        <b-form-input id="booking-user-lastname" type="text" />
+        <b-form-input
+          v-model="client.lastname"
+          v-validate="'required|max:50'"
+          id="booking-user-lastname"
+          type="text"
+          name="lastname"
+        />
+        <span>{{ errors.first("lastname") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="3">
@@ -89,6 +99,7 @@
           type="date"
           name="birthday"
         />
+        <span>{{ errors.first("birthday") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="4">
@@ -99,20 +110,27 @@
           type="text"
           name="idNumber"
         />
+        <span>{{ errors.first("idNumber") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="5">
         <label for="booking-user-gender">Gender</label>
         <b-form-group>
-          <b-form-radio v-model="client.gender" class="d-inline" value="male"
+          <b-form-radio
+            v-model="client.gender"
+            class="d-inline"
+            value="male"
+            name="client-gender"
             >Male</b-form-radio
           >
           <b-form-radio
             v-model="client.gender"
             class="d-inline ml-3"
             value="female"
+            name="client-gender"
             >Female</b-form-radio
           >
+          <span>{{ errors.first("client-gender") }}</span>
         </b-form-group>
       </b-col>
 
@@ -124,6 +142,7 @@
           type="email"
           name="email"
         />
+        <span>{{ errors.first("email") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="5">
@@ -134,6 +153,7 @@
           type="text"
           name="cellphone"
         />
+        <span>{{ errors.first("cellphone") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="7">
@@ -144,6 +164,7 @@
           type="text"
           name="address"
         />
+        <span>{{ errors.first("address") }}</span>
       </b-col>
     </b-row>
 
@@ -156,43 +177,80 @@
 
       <b-col class="mb-4" md="5">
         <label for="booking-kin-lastname">Lastname</label>
-        <b-form-input id="booking-kin-lastname" type="text" />
+        <b-form-input
+          v-model="kin.lastname"
+          id="booking-kin-lastname"
+          type="text"
+          name="kin-lastname"
+        />
+        <span>{{ errors.first("kin-lastname") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="7">
         <label for="booking-kin-names">First name(s)</label>
-        <b-form-input id="booking-kin-names" type="text" />
+        <b-form-input
+          v-model="kin.firstnames"
+          id="booking-kin-names"
+          type="text"
+          name="kin-firstnames"
+        />
+        <span>{{ errors.first("kin-firstnames") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="5">
         <label for="booking-kin-cell">Cell no. (eg. +264812345678)</label>
         <b-form-input
+          v-model="kin.cellphone"
           v-validate="{ required: true, regex: /^\+[1-9]{1}[0-9]{3,14}$/ }"
           id="booking-kin-cell"
           type="text"
-          name="phone"
+          name="kin-phone"
         />
-        <span>{{ errors.first("phone") }}</span>
+        <span>{{ errors.first("kin-phone") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="4">
         <label for="booking-kin-id">ID/Passport no.</label>
-        <b-form-input id="booking-kin-id" type="text" />
+        <b-form-input
+          v-model="kin.idNumber"
+          id="booking-kin-id"
+          type="text"
+          name="kin-id"
+        />
+        <span>{{ errors.first("kin-id") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="3">
         <label for="booking-kin-title">Title</label>
-        <b-form-input id="booking-kin-title" type="text" />
+        <b-form-input
+          v-model="kin.title"
+          id="booking-kin-title"
+          type="text"
+          name="kin-title"
+        />
+        <span>{{ errors.first("kin-title") }}</span>
       </b-col>
 
       <b-col class="mb-4" md="5">
         <label for="booking-kin-relationship">Relationship</label>
-        <b-form-input id="booking-kin-relationship" type="text" />
+        <b-form-input
+          v-model="kin.relationship"
+          id="booking-kin-relationship"
+          type="text"
+          name="kin-relationship"
+        />
+        <span>{{ errors.first("kin-relationship") }}</span>
       </b-col>
 
       <b-col md="7">
         <label for="booking-kin-email">Email address</label>
-        <b-form-input id="booking-kin-email" type="text" />
+        <b-form-input
+          v-model="kin.email"
+          id="booking-kin-email"
+          type="text"
+          name="kin-email"
+        />
+        <span>{{ errors.first("kin-email") }}</span>
       </b-col>
 
       <b-col class="my-2" md="12">
@@ -221,6 +279,7 @@
       <b-col class="mx-auto text-center" md="12">
         <b-form-group>
           <b-form-radio
+            v-model="client.experience"
             style="font-size: 0.9em;"
             class="d-inline"
             name="experience-choice"
@@ -228,6 +287,7 @@
             >Amateur</b-form-radio
           >
           <b-form-radio
+            v-model="client.experience"
             style="font-size: 0.9em;"
             class="d-inline ml-3"
             name="experience-choice"
@@ -235,12 +295,14 @@
             >Intermediate</b-form-radio
           >
           <b-form-radio
+            v-model="client.experience"
             style="font-size: 0.9em;"
             class="d-inline ml-3"
             name="experience-choice"
             value="professional"
             >Professional</b-form-radio
           >
+          <span>{{ errors.first("experience-choice") }}</span>
         </b-form-group>
       </b-col>
 
@@ -301,7 +363,9 @@
 
     <b-row class="pb-4">
       <b-col class="mb-2" md="12">
-        <b-button class="btn-theme">SUBMIT BOOKING</b-button>
+        <b-button @click="makeBooking" class="btn-theme"
+          >SUBMIT BOOKING</b-button
+        >
       </b-col>
       <b-col md="12">
         <p>
@@ -332,7 +396,7 @@ export default {
       email: "",
       cellphone: "",
       address: "",
-      drivingSkill: ""
+      experience: ""
     },
     kin: {
       firstnames: "",
@@ -343,7 +407,13 @@ export default {
       relationship: "",
       email: ""
     }
-  })
+  }),
+  methods: {
+    makeBooking() {
+      console.table(this.client);
+      console.table(this.kin);
+    }
+  }
 };
 </script>
 
