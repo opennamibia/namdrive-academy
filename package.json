@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.6.0",
+    "@sendgrid/mail": "^6.4.0",
     "bootstrap-vue": "^2.0.0-rc.26",
     "dotenv": "^8.1.0",
     "nuxt": "^2.0.0"
