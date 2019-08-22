@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en-US" class="lt-ie9 ie9" {{ HTML_ATTRS }}><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html {{ HTML_ATTRS }}>
+<!--<![endif]-->
+
+<head {{ HEAD_ATTRS }}>
+  {{
+      HEAD
+    }}
+</head>
+
+<body {{ BODY_ATTRS }}>
+  {{ APP }}
+  <form name="namdrive-booking" method="POST" netlify-honeypot="bot-field" data-netlify="true" hidden>
+    <p v-show="false">
+      <label>
+        Don’t fill this out if you're human:
+        <input name="bot-field" />
+      </label>
+    </p>
+    <input name="package-choice" />
+    <input name="package-choice" />
+    <input name="bookingDate" />
+    <input name="title" />
+    <input name="firstnames" />
+    <input name="lastname" />
+    <input name="birthday" />
+    <input name="idNumber" />
+    <input name="client-gender" />
+    <input name="client-gender" />
+    <input name="email" />
+    <input name="cellphone" />
+    <input name="address" />
+    <input name="kin-lastname" />
+    <input name="kin-firstnames" />
+    <input name="kin-phone" />
+    <input name="kin-id" />
+    <input name="kin-title" />
+    <input name="kin-relationship" />
+    <input name="experience-choice" />
+    <input name="experience-choice" />
+    <input name="experience-choice" />
+  </form>
+</body>
+
+</html>

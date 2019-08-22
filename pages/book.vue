@@ -1,6 +1,18 @@
 <template>
   <b-container style="max-width: 800px;" class="justify-content-center border">
-    <form ref="bookingForm" id="booking-form">
+    <form
+      ref="bookingForm"
+      name="namdrive-booking"
+      method="POST"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+    >
+      <p v-show="false">
+        <label>
+          Don’t fill this out if you're human:
+          <input name="bot-field" />
+        </label>
+      </p>
       <b-row class="justify-content-center">
         <b-col class="text-center mx-auto" md="12">
           <img class="w-75 my-5" src="~/assets/images/jumbo-logo.png" alt="Namdrive branding image" />
@@ -404,14 +416,43 @@ export default {
       email: ""
     }
   }),
+  computed: {
+    enteredKin() {
+      const isEntered = Object.keys(this.kin).filter(key => {
+        if (this.kin[key] !== "") {
+          let prop = `kin-${key}`;
+          return {
+            prop: this.kin[key]
+          };
+        }
+      });
+    }
+  },
   methods: {
     makeBooking(e) {
       e.preventDefault();
       if (!this.$refs.bookingForm.checkValidity()) {
         this.$refs.hiddenValidate.click();
       } else {
-        console.log("All good");
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "content-type": "application/w-xxx-form-urlencoded"
+          },
+          body: this.encode({
+            "form-name": "namdrive-booking",
+            ...this.kin,
+            ...this.client
+          })
+        });
       }
+    },
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
     }
   }
 };
