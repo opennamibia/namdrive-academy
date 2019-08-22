@@ -451,7 +451,9 @@ export default {
             this.$refs.bookingForm.reset();
             this.$router.push("/");
           })
-          .catch(err => console.error("An error ocurred"));
+          .catch(err => {
+            alert("An error occurred, plwase try again later!");
+          });
       }
     },
     encode(data) {

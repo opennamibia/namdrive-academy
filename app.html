@@ -13,6 +13,7 @@
 <body {{ BODY_ATTRS }}>
   {{ APP }}
   <form name="namdrive-booking" netlify netlify-honeypot="bot-field" data-netlify="true" hidden>
+    <input type="hidden" name="form-name" value="namdrive-booking" />
     <p v-show="false">
       <label>
         Don’t fill this out if you're human:
