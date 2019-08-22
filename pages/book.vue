@@ -3,10 +3,11 @@
     <form
       ref="bookingForm"
       name="namdrive-booking"
-      method="POST"
+      method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
     >
+      <input type="hidden" name="form-name" value="namdrive-booking" />
       <p v-show="false">
         <label>
           Don’t fill this out if you're human:
@@ -437,14 +438,20 @@ export default {
         fetch("/", {
           method: "POST",
           headers: {
-            "content-type": "application/w-xxx-form-urlencoded"
+            "Content-Type": "application/w-xxx-form-urlencoded"
           },
           body: this.encode({
             "form-name": "namdrive-booking",
-            ...this.kin,
+            ...this.enteredKin,
             ...this.client
           })
-        });
+        })
+          .then(() => {
+            alert("Thank you for your booking!");
+            this.$refs.bookingForm.reset();
+            this.$router.push("/");
+          })
+          .catch(err => console.error("An error ocurred"));
       }
     },
     encode(data) {

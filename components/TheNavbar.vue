@@ -21,7 +21,7 @@
           to="/pricing"
         >PRICING</b-nav-item>
         <b-nav-item v-else class="d-flex align-items-center" to="/">HOME</b-nav-item>
-        <b-nav-item href="#">
+        <b-nav-item to="/book">
           <b-button class="btn-success">BOOK NOW</b-button>
         </b-nav-item>
       </b-navbar-nav>
