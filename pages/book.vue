@@ -4,7 +4,6 @@
       ref="bookingForm"
       name="namdrive-booking"
       method="post"
-      action="/"
       netlify-honeypot="bot-field"
       data-netlify="true"
     >
@@ -436,7 +435,7 @@ export default {
       if (!this.$refs.bookingForm.checkValidity()) {
         this.$refs.hiddenValidate.click();
       } else {
-        fetch("/", {
+        fetch("/book", {
           method: "POST",
           headers: {
             "Content-Type": "application/w-xxx-form-urlencoded"
