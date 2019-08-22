@@ -2,8 +2,8 @@
 require("dotenv").config();
 exports.handler = function(event, context, callback) {
   try {
-    const payload = JSON.parse(event.body); /*.payload;*/
-    const { client, kin } = payload; /*.data*/
+    const payload = JSON.parse(event.body).payload;
+    const { client, kin } = payload.data;
     const sgMail = require("@sendgrid/mail");
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
