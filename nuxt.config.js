@@ -31,7 +31,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["bootstrap-vue/nuxt", "nuxt-purgecss"],
+  modules: ["bootstrap-vue/nuxt"],
   /*
    ** Build configuration
    */
@@ -39,7 +39,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
-    extractCSS: true
+    extend(config, ctx) {}
   }
 };
