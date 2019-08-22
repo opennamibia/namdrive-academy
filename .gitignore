@@ -87,3 +87,5 @@ sw.*
 # Mac OSX
 .DS_Storesendgrid.env
 sendgrid.env
+
+email.html
