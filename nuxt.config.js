@@ -27,11 +27,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/validate.js", ssr: false }],
+  plugins: [],
   /*
    ** Nuxt.js modules
    */
-  modules: ["bootstrap-vue/nuxt"],
+  modules: ["bootstrap-vue/nuxt", "nuxt-purgecss"],
   /*
    ** Build configuration
    */

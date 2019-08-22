@@ -22,7 +22,7 @@
               <b-col md="6">
                 <b-card-body title="Book online">
                   <b-card-text>Booking your driving lessons has never been easier. Just fill out our form.</b-card-text>
-                  <b-button to="/pricing" class="btn-success shadow-sm mx-auto">BOOK NOW</b-button>
+                  <b-button to="/book" class="btn-success shadow-sm mx-auto">BOOK NOW</b-button>
                   <b-link class="ml-3" to="/pricing">PRICING</b-link>
                 </b-card-body>
               </b-col>
