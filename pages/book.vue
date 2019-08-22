@@ -440,17 +440,16 @@ export default {
       if (!this.$refs.bookingForm.checkValidity()) {
         this.$refs.hiddenValidate.click();
       } else {
-        fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/w-xxx-form-urlencoded"
-          },
-          body: this.encode({
-            "form-name": "namdrive-booking",
-            ...this.enteredKin,
-            ...this.client
-          })
-        })
+        this.$axios
+          .$post(
+            "/",
+            this.encode({
+              "form-name": "namdrive-booking",
+              ...this.enteredKin,
+              ...this.client
+            }),
+            { "Content-Type": "application/x-www-form-urlencoded" }
+          )
           .then(() => {
             alert("Thank you for your booking!");
             this.$refs.bookingForm.reset();
