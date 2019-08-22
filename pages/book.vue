@@ -4,6 +4,7 @@
       ref="bookingForm"
       name="namdrive-booking"
       method="post"
+      action="/"
       netlify-honeypot="bot-field"
       data-netlify="true"
     >
