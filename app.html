@@ -12,36 +12,36 @@
 
 <body {{ BODY_ATTRS }}>
   {{ APP }}
-  <form action="/" name="namdrive-booking" netlify netlify-honeypot="bot-field" data-netlify="true" hidden>
+  <form name="namdrive-booking" netlify netlify-honeypot="bot-field" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="namdrive-booking" />
     <p v-show="false">
       <label>
         Don’t fill this out if you're human:
-        <input name="bot-field" />
+        <input type="text" name="bot-field" />
       </label>
     </p>
-    <input name="package-choice" />
-    <input name="package-choice" />
-    <input name="bookingDate" />
-    <input name="title" />
-    <input name="firstnames" />
-    <input name="lastname" />
-    <input name="birthday" />
-    <input name="idNumber" />
-    <input name="client-gender" />
-    <input name="client-gender" />
-    <input name="email" />
-    <input name="cellphone" />
-    <input name="address" />
-    <input name="kin-lastname" />
-    <input name="kin-firstnames" />
-    <input name="kin-phone" />
-    <input name="kin-id" />
-    <input name="kin-title" />
-    <input name="kin-relationship" />
-    <input name="experience-choice" />
-    <input name="experience-choice" />
-    <input name="experience-choice" />
+    <input type="radio" name="package-choice" />
+    <input type="radio" name="package-choice" />
+    <input type="date" name="bookingDate" />
+    <input type="text" name="title" />
+    <input type="text" name="firstnames" />
+    <input type="text" name="lastname" />
+    <input type="date" name="birthday" />
+    <input type="text" name="idNumber" />
+    <input type="radio" name="client-gender" />
+    <input type="radio" name="client-gender" />
+    <input type="email" name="email" />
+    <input type="text" name="cellphone" />
+    <input type="text" name="address" />
+    <input type="text" name="kin-lastname" />
+    <input type="text" name="kin-firstnames" />
+    <input type="text" name="kin-phone" />
+    <input type="text" name="kin-id" />
+    <input type="text" name="kin-title" />
+    <input type="text" name="kin-relationship" />
+    <input type="radio" name="experience-choice" />
+    <input type="radio" name="experience-choice" />
+    <input type="radio" name="experience-choice" />
   </form>
 </body>
 
