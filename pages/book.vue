@@ -7,8 +7,7 @@
       netlify-honeypot="bot-field"
       data-netlify="true"
     >
-      <input type="hidden" name="form-name" value="namdrive-booking" />
-      <p v-show="false">
+      <p hidden>
         <label>
           Don’t fill this out if you're human:
           <input name="bot-field" />
@@ -36,18 +35,20 @@
 
       <b-row class="justify-content-center px-3">
         <b-form-group>
-          <b-form-radio
-            v-model="client.package"
-            name="package"
-            value="Learner + Drivers"
-            required
-          >Learner and Driver Training Package (Code B)</b-form-radio>
-          <b-form-radio
-            v-model="client.package"
-            name="package"
-            value="Drivers Only"
-            required
-          >Driver Training Package (Code B)</b-form-radio>
+          <fieldset>
+            <b-form-radio
+              v-model="client.package"
+              name="package"
+              value="Learner + Drivers"
+              required
+            >Learner and Driver Training Package (Code B)</b-form-radio>
+            <b-form-radio
+              v-model="client.package"
+              name="package"
+              value="Drivers Only"
+              required
+            >Driver Training Package (Code B)</b-form-radio>
+          </fieldset>
           <p class="text-muted mt-0 ml-4">
             <small>(We require you to present your valid learner's license)</small>
           </p>
@@ -132,20 +133,22 @@
         <b-col class="mb-4" md="5">
           <label for="booking-user-gender">Gender</label>
           <b-form-group>
-            <b-form-radio
-              v-model="client.gender"
-              class="d-inline"
-              value="male"
-              name="gender"
-              required
-            >Male</b-form-radio>
-            <b-form-radio
-              v-model="client.gender"
-              class="d-inline ml-3"
-              value="female"
-              name="gender"
-              required
-            >Female</b-form-radio>
+            <fieldset>
+              <b-form-radio
+                v-model="client.gender"
+                class="d-inline"
+                value="male"
+                name="gender"
+                required
+              >Male</b-form-radio>
+              <b-form-radio
+                v-model="client.gender"
+                class="d-inline ml-3"
+                value="female"
+                name="gender"
+                required
+              >Female</b-form-radio>
+            </fieldset>
           </b-form-group>
         </b-col>
 
@@ -290,30 +293,32 @@
       <b-row class="py-4">
         <b-col class="mx-auto text-center" md="12">
           <b-form-group>
-            <b-form-radio
-              v-model="client.experience"
-              style="font-size: 0.9em;"
-              class="d-inline"
-              name="experience"
-              value="amateur"
-              required
-            >Amateur</b-form-radio>
-            <b-form-radio
-              v-model="client.experience"
-              style="font-size: 0.9em;"
-              class="d-inline ml-3"
-              name="experience"
-              value="intermediate"
-              required
-            >Intermediate</b-form-radio>
-            <b-form-radio
-              v-model="client.experience"
-              style="font-size: 0.9em;"
-              class="d-inline ml-3"
-              name="experience"
-              value="professional"
-              required
-            >Professional</b-form-radio>
+            <fieldset>
+              <b-form-radio
+                v-model="client.experience"
+                style="font-size: 0.9em;"
+                class="d-inline"
+                name="experience"
+                value="amateur"
+                required
+              >Amateur</b-form-radio>
+              <b-form-radio
+                v-model="client.experience"
+                style="font-size: 0.9em;"
+                class="d-inline ml-3"
+                name="experience"
+                value="intermediate"
+                required
+              >Intermediate</b-form-radio>
+              <b-form-radio
+                v-model="client.experience"
+                style="font-size: 0.9em;"
+                class="d-inline ml-3"
+                name="experience"
+                value="professional"
+                required
+              >Professional</b-form-radio>
+            </fieldset>
           </b-form-group>
         </b-col>
 
