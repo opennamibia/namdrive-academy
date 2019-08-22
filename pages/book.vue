@@ -38,13 +38,13 @@
         <b-form-group>
           <b-form-radio
             v-model="client.package"
-            name="package-choice"
+            name="package"
             value="Learner + Drivers"
             required
           >Learner and Driver Training Package (Code B)</b-form-radio>
           <b-form-radio
             v-model="client.package"
-            name="package-choice"
+            name="package"
             value="Drivers Only"
             required
           >Driver Training Package (Code B)</b-form-radio>
@@ -136,14 +136,14 @@
               v-model="client.gender"
               class="d-inline"
               value="male"
-              name="client-gender"
+              name="gender"
               required
             >Male</b-form-radio>
             <b-form-radio
               v-model="client.gender"
               class="d-inline ml-3"
               value="female"
-              name="client-gender"
+              name="gender"
               required
             >Female</b-form-radio>
           </b-form-group>
@@ -221,7 +221,7 @@
             v-model="kin.cellphone"
             id="booking-kin-cell"
             type="text"
-            name="kin-phone"
+            name="kin-cellphone"
             pattern="^\+[1-9]{1}[0-9]{3,14}$"
             title="Please enter a valid cellphone number."
           />
@@ -233,7 +233,7 @@
             v-model="kin.idNumber"
             id="booking-kin-id"
             type="text"
-            name="kin-id"
+            name="kin-idNumber"
             maxlength="30"
           />
         </b-col>
@@ -294,7 +294,7 @@
               v-model="client.experience"
               style="font-size: 0.9em;"
               class="d-inline"
-              name="experience-choice"
+              name="experience"
               value="amateur"
               required
             >Amateur</b-form-radio>
@@ -302,7 +302,7 @@
               v-model="client.experience"
               style="font-size: 0.9em;"
               class="d-inline ml-3"
-              name="experience-choice"
+              name="experience"
               value="intermediate"
               required
             >Intermediate</b-form-radio>
@@ -310,7 +310,7 @@
               v-model="client.experience"
               style="font-size: 0.9em;"
               class="d-inline ml-3"
-              name="experience-choice"
+              name="experience"
               value="professional"
               required
             >Professional</b-form-radio>
@@ -435,7 +435,7 @@ export default {
       if (!this.$refs.bookingForm.checkValidity()) {
         this.$refs.hiddenValidate.click();
       } else {
-        fetch("/book", {
+        fetch("/", {
           method: "POST",
           headers: {
             "Content-Type": "application/w-xxx-form-urlencoded"
