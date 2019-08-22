@@ -3,6 +3,7 @@
     <form
       ref="bookingForm"
       name="namdrive-booking"
+      action="/"
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
@@ -379,7 +380,7 @@
 
       <b-row class="pb-4">
         <b-col class="mb-2" md="12">
-          <b-button type="submit" @click="makeBooking" class="btn-theme">SUBMIT BOOKING</b-button>
+          <b-button @click="makeBooking" type="submit" class="btn-theme">SUBMIT BOOKING</b-button>
           <input ref="hiddenValidate" type="submit" hidden />
         </b-col>
         <b-col md="12">
@@ -440,23 +441,20 @@ export default {
       if (!this.$refs.bookingForm.checkValidity()) {
         this.$refs.hiddenValidate.click();
       } else {
-        this.$axios
-          .$post(
-            "/",
-            this.encode({
-              "form-name": "namdrive-booking",
-              ...this.enteredKin,
-              ...this.client
-            }),
-            { "Content-Type": "application/x-www-form-urlencoded" }
-          )
-          .then(() => {
-            alert("Thank you for your booking!");
+        fetch("/.netlify/functions/notifier", {
+          method: "post",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({ client: this.client, kin: this.kin })
+        })
+          .then(data => {
+            alert("Thank you for the booking! See you soon.");
             this.$refs.bookingForm.reset();
             this.$router.push("/");
           })
           .catch(err => {
-            alert("An error occurred, plwase try again later!");
+            alert("Oops, an error occurred, please try later.");
           });
       }
     },
